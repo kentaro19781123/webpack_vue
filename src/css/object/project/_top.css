@@ -1,0 +1,19 @@
+.p-h1 {
+  color: #c00;
+  font-size: $fontL;
+  font-weight: bold;
+}
+
+
+.p-contents {
+  display: flex;
+}
+
+.p-item {
+  width: calc(100px * 2);
+  height: calc(100px * 2);
+  margin-bottom: calc($space * 2);
+  transform:translate3d(0,0,0);
+  background: url('../img/photo.jpg');
+  overflow: hidden;
+}

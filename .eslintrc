@@ -1,0 +1,25 @@
+{
+  "extends": [
+    "plugin:vue/recommended",
+    "eslint:recommended"
+    # "standard"
+  ],
+  "parserOptions": {
+    "parser": "babel-eslint",
+  },
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  plugins: [
+    'vue'
+  ],
+  "globals": {
+    "PROJECTNAME": true,
+    "window": true
+  },
+  rules: {
+    "no-console": "off",
+    "vue/max-attributes-per-line": "off",
+  }
+}
