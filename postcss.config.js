@@ -13,7 +13,6 @@ module.exports = {
     require('postcss-calc')(),
     require('postcss-custom-media')(),
     require('css-mqpacker')(),
-    require('csswring')(),
     require('postcss-assets')(),
     require('postcss-conditionals')()
   ]

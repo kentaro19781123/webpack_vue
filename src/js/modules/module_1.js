@@ -1,5 +1,5 @@
 'use strict'
 
-export default function module (el) {
+export default function module1 (el) {
   el.innerHTML = 'js-item'
 }

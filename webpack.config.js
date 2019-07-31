@@ -2,13 +2,14 @@ const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   entry: {
-    index: ['@babel/polyfill', './src/js/index.js'],
+    script: ['@babel/polyfill', './src/js/script.js'],
     main: './src/css/style.css'
   },
   output: {
@@ -23,22 +24,6 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.vue$/,
-        use: [
-          {
-            loader: 'vue-loader',
-            options: {
-              loaders: {
-                js: 'babel-loader'
-              }
-            }
-          },
-          {
-            loader: 'eslint-loader'
-          }
-        ]
-      },
       {
         enforce: 'pre',
         test: /\.js$/,
@@ -85,6 +70,22 @@ module.exports = {
           'postcss-loader'
         ],
         exclude: /node_modules/
+      },
+      {
+        test: /\.vue$/,
+        use: [
+          {
+            loader: 'vue-loader',
+            options: {
+              loaders: {
+                js: 'babel-loader'
+              }
+            }
+          },
+          {
+            loader: 'eslint-loader'
+          }
+        ]
       }
     ]
   },
@@ -93,7 +94,6 @@ module.exports = {
     contentBase: './dist'
   },
   plugins: [
-    new VueLoaderPlugin(),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin([{
       from: './src/img',
@@ -110,6 +110,10 @@ module.exports = {
     new FixStyleOnlyEntriesPlugin(),
     new MiniCssExtractPlugin({
       filename: './css/[name].css'
-    })
-  ]
+    }),
+    new VueLoaderPlugin()
+  ],
+  optimization: {
+    minimizer: [new OptimizeCSSAssetsPlugin({})]
+  }
 }

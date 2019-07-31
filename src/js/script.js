@@ -11,7 +11,7 @@ const PROJECTNAME = {
     if (!item) {
       return
     }
-    module1()
+    module1(item)
   },
   clickEvent (items = document.body.querySelectorAll('.js-item')) {
     if (!items.length) {
