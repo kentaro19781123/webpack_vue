@@ -1,6 +1,7 @@
 'use strict'
 
 import module1 from './modules/module_1'
+import module2 from './modules/module_2'
 import Vue from 'vue'
 import App from './modules/module_vue'
 
@@ -10,7 +11,7 @@ const PROJECTNAME = {
     if (!item) {
       return
     }
-    module1.modulesConsole(item)
+    module1()
   },
   clickEvent (items = document.body.querySelectorAll('.js-item')) {
     if (!items.length) {
@@ -19,12 +20,11 @@ const PROJECTNAME = {
 
     for (const item of items) {
       item.addEventListener('click', () => {
-        module1.modulesClick()
+        module2()
       })
     }
   },
   vueContent () {
-    /* eslint-disable no-new */
     new Vue({
       el: '#msg',
       components: { App },

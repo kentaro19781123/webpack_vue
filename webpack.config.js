@@ -8,7 +8,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   entry: {
-    index: './src/js/index.js',
+    index: ['@babel/polyfill', './src/js/index.js'],
     main: './src/css/style.css'
   },
   output: {
