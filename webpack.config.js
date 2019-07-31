@@ -9,7 +9,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   entry: {
-    script: ['@babel/polyfill', './src/js/script.js'],
+    script: './src/js/script.js',
     main: './src/css/style.css'
   },
   output: {
