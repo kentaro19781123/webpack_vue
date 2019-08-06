@@ -28,7 +28,10 @@ module.exports = {
         enforce: 'pre',
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'eslint-loader'
+        loader: 'eslint-loader',
+        options: {
+          configFile: './config/.eslintrc'
+        }
       },
       {
         test: /\.js$/,
@@ -36,13 +39,14 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              presets: [
-                '@babel/preset-env'
-              ]
+              configFile: './config/.babelrc'
             }
           },
           {
-            loader: 'eslint-loader'
+            loader: 'eslint-loader',
+            options: {
+              configFile: './config/.eslintrc'
+            }
           }
         ],
         exclude: /node_modules/
@@ -67,7 +71,15 @@ module.exports = {
               url: false
             }
           },
-          'postcss-loader'
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: {
+                path: './config/'
+              }
+            }
+          }
+          // 'postcss-loader'
         ],
         exclude: /node_modules/
       },
@@ -79,11 +91,17 @@ module.exports = {
             options: {
               loaders: {
                 js: 'babel-loader'
+              },
+              options: {
+                configFile: './config/.babelrc'
               }
             }
           },
           {
-            loader: 'eslint-loader'
+            loader: 'eslint-loader',
+            options: {
+              configFile: './config/.eslintrc'
+            }
           }
         ]
       }
