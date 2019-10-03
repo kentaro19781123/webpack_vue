@@ -135,14 +135,6 @@ const config = {
       from: './src/img',
       to: 'img'
     }]),
-    // new HtmlWebPackPlugin({
-    //   template: './src/page/index.pug',
-    //   filename: './index.html'
-    // }),
-    // new HtmlWebPackPlugin({
-    //   template: './src/page/content/index.pug',
-    //   filename: './content/index.html'
-    // }),
     new FixStyleOnlyEntriesPlugin(),
     new MiniCssExtractPlugin({
       filename: './css/[name].css'
