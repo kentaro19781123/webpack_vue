@@ -11,14 +11,14 @@
     "es6": true,
     "node": true
   },
-  plugins: [
-    'vue'
+  "plugins": [
+    "vue"
   ],
   "globals": {
     "PROJECTNAME": true,
     "window": true
   },
-  rules: {
+  "rules": {
     "no-console": "off",
     "vue/max-attributes-per-line": "off"
   }
